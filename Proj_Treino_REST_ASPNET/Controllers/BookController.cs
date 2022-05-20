@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Proj_Treino_REST_ASPNET.Model;
 using Proj_Treino_REST_ASPNET.Business;
+using Proj_Treino_REST_ASPNET.Data.VO;
 
 
 namespace Proj_Treino_REST_ASPNET.Controllers
 {
+
     [ApiVersion("1")]
     [ApiController]
     [Route("api/[controller]/v{version:apiVersion}")]
@@ -20,12 +21,12 @@ namespace Proj_Treino_REST_ASPNET.Controllers
             _logger = logger;
             _bookBusiness = bookBusiness;
         }
+
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_bookBusiness.FindAll());
         }
-
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
@@ -35,14 +36,13 @@ namespace Proj_Treino_REST_ASPNET.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult Post([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return Ok(_bookBusiness.Create(book));
         }
-
         [HttpPut]
-        public IActionResult Put([FromBody] Book book)
+        public IActionResult Put([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return Ok(_bookBusiness.Update(book));

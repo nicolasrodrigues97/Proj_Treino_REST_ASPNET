@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Proj_Treino_REST_ASPNET.Model;
 using Proj_Treino_REST_ASPNET.Business;
-
+using Proj_Treino_REST_ASPNET.Data.VO;
 
 namespace Proj_Treino_REST_ASPNET.Controllers
 {
@@ -34,13 +34,13 @@ namespace Proj_Treino_REST_ASPNET.Controllers
             return Ok(person);
         }
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             return Ok(_personBusiness.Create(person));
         }
         [HttpPut]
-        public IActionResult Put([FromBody] Person person) 
+        public IActionResult Put([FromBody] PersonVO person) 
         {
             if (person == null) return BadRequest();
             return Ok(_personBusiness.Update(person));

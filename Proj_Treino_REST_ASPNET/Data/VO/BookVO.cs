@@ -2,23 +2,14 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Proj_Treino_REST_ASPNET.Model
+namespace Proj_Treino_REST_ASPNET.Data.VO
 {
-    [Table("books")]
-    public class Book : BaseEntity
+    public class BookVO
     {
-        // herda id de BaseEntity
-        [Column("title")]
+        public long Id { get; set; }
         public string Title { get; set; }
-
-        [Column("author")]
         public string Author { get; set; }
-
-        [Column("price")]
         public decimal Price { get; set; }
-
-        [Column("launch_date")]
         public DateTime LaunchDate { get; set; }
     }
-
 }

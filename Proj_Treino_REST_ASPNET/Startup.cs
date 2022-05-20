@@ -9,10 +9,10 @@ using Proj_Treino_REST_ASPNET.Model.Context;
 using Proj_Treino_REST_ASPNET.Business;
 using Proj_Treino_REST_ASPNET.Business.Implementations;
 using Proj_Treino_REST_ASPNET.Repository;
-using Proj_Treino_REST_ASPNET.Repository.Implementations;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using Proj_Treino_REST_ASPNET.Repository.Generic;
 
 namespace Proj_Treino_REST_ASPNET
 {
@@ -46,10 +46,9 @@ namespace Proj_Treino_REST_ASPNET
             services.AddApiVersioning();
             // injeção de dependência
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
-
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
-            services.AddScoped<IBookRepository, BookRepositoryImplementation>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
             services.AddSwaggerGen(c =>
             {
