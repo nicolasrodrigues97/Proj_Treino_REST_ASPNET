@@ -1,6 +1,4 @@
-﻿using Proj_Treino_REST_ASPNET.Model.Base;
-
-namespace Proj_Treino_REST_ASPNET.Data.VO
+﻿namespace Proj_Treino_REST_ASPNET.Data.VO
 {
     public class PersonVO
     {

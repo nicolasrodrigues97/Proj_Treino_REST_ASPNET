@@ -9,7 +9,7 @@ namespace Proj_Treino_REST_ASPNET.Repository.Generic
 {
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private MySQLContext _context;
+        public MySQLContext _context;
         private DbSet<T> dataset;
 
         public GenericRepository(MySQLContext context) { 

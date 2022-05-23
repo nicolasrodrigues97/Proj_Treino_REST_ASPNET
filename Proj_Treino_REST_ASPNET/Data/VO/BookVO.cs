@@ -1,6 +1,4 @@
-﻿using Proj_Treino_REST_ASPNET.Model.Base;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 
 namespace Proj_Treino_REST_ASPNET.Data.VO
 {
